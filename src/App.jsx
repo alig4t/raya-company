@@ -83,7 +83,7 @@ function App() {
         <div className="absolute right-[-8rem] top-[-3rem] h-[24rem] w-[24rem] rounded-full bg-[#a5b4fc]/18 blur-3xl" />
       </div>
 
-      <header id="home" className="section-shell flex min-h-[100svh] flex-col pb-14 pt-6 md:pb-16 md:pt-8">
+      <header id="home" className="section-shell flex min-h-[100svh] flex-col pb-14 md:pb-16 md:pt-2">
         <nav className="flex items-center justify-between border-b border-[#d4ddf7] px-2 py-4 md:px-0">
           <a href="#home" className="font-display text-lg font-semibold text-[#12324c]">
             <span className="brand-latin">
