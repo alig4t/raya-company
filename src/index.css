@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&family=Manrope:wght@500;600;700&display=swap');
+@import "tailwindcss";
+
+:root {
+  --bg-main: #f7fbff;
+  --bg-soft: #eef2ff;
+  --panel: rgba(255, 255, 255, 0.78);
+  --line: rgba(101, 136, 171, 0.25);
+  --text-main: #13324c;
+  --text-muted: #5a7691;
+  --brand: #6366f1;
+  --brand-soft: #818cf8;
+  --warm: #f4b565;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  direction: rtl;
+  font-family: 'Vazirmatn', sans-serif;
+  color: var(--text-main);
+  background:
+    radial-gradient(circle at 14% 14%, rgba(99, 102, 241, 0.16), transparent 40%),
+    radial-gradient(circle at 88% 6%, rgba(129, 140, 248, 0.16), transparent 42%),
+    linear-gradient(150deg, #ffffff 0%, #f8faff 54%, var(--bg-soft) 100%);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+.font-display {
+  font-family: 'Vazirmatn', sans-serif;
+  letter-spacing: -0.015em;
+}
+
+.brand-latin {
+  direction: ltr;
+  unicode-bidi: isolate;
+  font-family: 'Manrope', sans-serif;
+  letter-spacing: 0.02em;
+}
+
+.section-shell {
+  margin-inline: auto;
+  width: min(1120px, calc(100% - 2.5rem));
+}
+
+.glass-panel {
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(160deg, rgba(255, 255, 255, 0.92), rgba(239, 248, 255, 0.84)),
+    var(--panel);
+  box-shadow:
+    0 10px 30px rgba(42, 87, 130, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+}
+
+.hero-grid {
+  display: grid;
+  gap: clamp(2.5rem, 5vw, 5rem);
+}
+
+.project-card {
+  transition:
+    transform 0.45s ease,
+    box-shadow 0.45s ease,
+    border-color 0.45s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-9px);
+  border-color: rgba(29, 167, 216, 0.4);
+  box-shadow: 0 28px 48px rgba(36, 79, 120, 0.18);
+}
+
+.project-card img {
+  transition: transform 0.6s ease;
+}
+
+.project-card:hover img {
+  transform: scale(1.06);
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.8s ease both;
+}
+
+.orbit-main {
+  transform-origin: 260px 260px;
+  animation: spin 20s linear infinite;
+}
+
+.orbit-reverse {
+  transform-origin: 260px 260px;
+  animation: spinReverse 28s linear infinite;
+}
+
+.orbit-dot {
+  transform-origin: 260px 260px;
+  animation: spin 11s linear infinite;
+}
+
+.pulse-path {
+  stroke-dasharray: 7 11;
+  animation: trace 4s linear infinite;
+}
+
+.hero-svg-wrap {
+  animation: float 6.2s ease-in-out infinite;
+}
+
+.contact-ltr {
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinReverse {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes trace {
+  to {
+    stroke-dashoffset: -108;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+@media (max-width: 767px) {
+  .section-shell {
+    width: min(1120px, calc(100% - 1.5rem));
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+  }
+}
