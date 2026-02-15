@@ -62,7 +62,7 @@ function App() {
   useEffect(() => {
     let isMounted = true
 
-    fetch(encodeURI('/Appointment booking with smartphone.json'))
+    fetch(encodeURI('/evergreen pc.json'))
       .then((response) => response.json())
       .then((data) => {
         if (isMounted) {
@@ -79,11 +79,11 @@ function App() {
   return (
     <div className="relative overflow-hidden pb-12 text-[#13324c]" dir="rtl">
       <div className="pointer-events-none absolute inset-0 -z-10 opacity-90">
-        <div className="absolute left-[-12rem] top-[20rem] h-[26rem] w-[26rem] rounded-full bg-[#c7d2fe]/40 blur-3xl" />
-        <div className="absolute right-[-8rem] top-[-3rem] h-[24rem] w-[24rem] rounded-full bg-[#a5b4fc]/35 blur-3xl" />
+        <div className="absolute left-[-12rem] top-[20rem] h-[26rem] w-[26rem] rounded-full bg-[#c7d2fe]/20 blur-3xl" />
+        <div className="absolute right-[-8rem] top-[-3rem] h-[24rem] w-[24rem] rounded-full bg-[#a5b4fc]/18 blur-3xl" />
       </div>
 
-      <header id="home" className="section-shell flex h-screen flex-col pt-6 md:pt-8">
+      <header id="home" className="section-shell flex min-h-[100svh] flex-col pb-14 pt-6 md:pb-16 md:pt-8">
         <nav className="flex items-center justify-between border-b border-[#d4ddf7] px-2 py-4 md:px-0">
           <a href="#home" className="font-display text-lg font-semibold text-[#12324c]">
             <span className="brand-latin">
@@ -109,73 +109,101 @@ function App() {
           </ul>
         </nav>
 
-        <div className="hero-grid flex-1 items-center py-10 md:py-14">
-          <div className="animate-fade-up">
-            <p className="mb-5 inline-flex rounded-full border border-[#9ab8d4]/50 bg-white/70 px-4 py-2 text-xs font-semibold tracking-[0.08em] text-[#547390]">
-              شرکت طراحی و توسعه نرم افزار
-            </p>
-            <h1 className="font-display text-4xl font-semibold leading-tight text-[#12324c] md:text-5xl xl:text-6xl">
-              نرم افزارهایی می سازیم که هم چشمگیرند، هم آماده رشد کسب وکار شما.
-            </h1>
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-[#56718c] md:text-lg">
-              رایا با ترکیب طراحی محصول، توسعه وب اپ و مهندسی زیرساخت، تجربه های دیجیتال
-              قدرتمند و ماندگار برای برندها خلق می کند.
-            </p>
+        <div className="hero-orbit-stage flex-1 py-6 md:py-8">
+          <div className="hero-orbit-wrap">
+            <article className="hero-note hero-note-top hero-note-plain animate-fade-up rounded-2xl p-5 text-center md:p-6">
+              <p className="mb-3 inline-flex rounded-full border border-[#b3c4f1]/60 bg-transparent px-3 py-1 text-xs font-semibold text-[#5b72a3]">
+                استودیو طراحی و توسعه نرم افزار
+              </p>
+              <h1 className="font-display text-2xl font-semibold leading-tight text-[#12324c] md:text-3xl">
+                <span className="text-[#4f46e5]">تجربه دیجیتال</span> حرفه ای برای{' '}
+                <span className="text-[#6366f1]">رشد سریع</span> کسب وکار
+              </h1>
+              <p className="mx-auto mt-3 max-w-3xl text-sm leading-relaxed text-[#56718c] md:text-base">
+                رایا محصولاتی طراحی می کند که هم از نظر تجربه کاربری چشمگیرند و هم از نظر فنی
+                آماده مقیاس.
+              </p>
+            </article>
 
-            <div className="mt-8 flex flex-wrap gap-4">
-              <a
-                href="#contact"
-                className="rounded-full bg-gradient-to-r from-[#1da7d8] to-[#40c8b2] px-6 py-3 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(29,167,216,0.28)] transition hover:translate-y-[-2px]"
-              >
-                شروع همکاری
-              </a>
-              <a
-                href="#projects"
-                className="rounded-full border border-[#a9c2d9] bg-white/70 px-6 py-3 text-sm font-semibold text-[#325271] transition hover:border-[#79a8cd] hover:text-[#12324c]"
-              >
-                مشاهده نمونه کارها
-              </a>
-            </div>
+            <article className="hero-note hero-note-right hero-side-card hero-skill-card rounded-2xl p-5 text-center md:p-6">
+              <h2 className="font-display text-lg font-semibold text-[#12324c] md:text-xl">تخصص های کلیدی</h2>
+              <div className="mt-4 space-y-3">
+                {expertise.map((item) => (
+                  <div
+                    key={item.label}
+                    className="hero-skill-item rounded-xl px-3 py-2"
+                  >
+                    <span className="hero-skill-dot" aria-hidden="true" />
+                    <span className="text-sm font-semibold text-[#244563]">{item.label}</span>
+                  </div>
+                ))}
+              </div>
+            </article>
 
-            <div className="mt-10 grid max-w-2xl gap-4 sm:grid-cols-3">
-              {metrics.map((item) => (
-                <article
-                  key={item.label}
-                  className="glass-panel rounded-xl px-4 py-4 text-center sm:text-right"
+            <article className="hero-note hero-note-left hero-side-card hero-kpi-card rounded-2xl p-5 text-center md:p-6">
+              <p className="text-sm font-semibold text-[#456489]">شاخص های عملکرد تیم رایا</p>
+              <div className="mt-4 grid gap-3">
+                {metrics.map((item) => (
+                  <div key={item.label} className="hero-kpi-item rounded-xl px-4 py-3 text-center">
+                    <p className="font-display text-2xl font-semibold text-[#12324c]">{item.value}</p>
+                    <p className="mt-1 text-xs text-[#5d7d99]">{item.label}</p>
+                  </div>
+                ))}
+              </div>
+            </article>
+
+            <article className="hero-note hero-note-bottom hero-note-plain rounded-2xl p-5 text-center md:p-6">
+              <p className="mx-auto max-w-3xl text-sm leading-relaxed text-[#56718c]">
+                برای شروع پروژه، نیازمندی ها و اهداف محصولت را ارسال کن تا نقشه راه اجرایی را با
+                هم تنظیم کنیم.
+              </p>
+              <div className="mt-4 flex flex-wrap justify-center gap-3">
+                <a
+                  href="#contact"
+                  className="rounded-full bg-gradient-to-r from-[#6366f1] to-[#818cf8] px-6 py-3 text-sm font-semibold text-white shadow-[0_10px_26px_rgba(99,102,241,0.25)] transition hover:translate-y-[-2px]"
                 >
-                  <p className="font-display text-2xl font-semibold text-[#12324c]">{item.value}</p>
-                  <p className="mt-1 text-xs tracking-[0.04em] text-[#5d7d99]">{item.label}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-
-          <div className="relative mx-auto w-full max-w-[520px]">
-            <div className="glass-panel hero-svg-wrap rounded-3xl p-4 md:p-6">
-              {heroAnimation ? (
-                <Suspense
-                  fallback={
-                    <div className="flex h-[380px] items-center justify-center text-sm text-[#6b85a0]">
-                      در حال آماده سازی انیمیشن...
-                    </div>
-                  }
+                  شروع همکاری
+                </a>
+                <a
+                  href="#projects"
+                  className="rounded-full border border-[#a9b7e6] bg-transparent px-6 py-3 text-sm font-semibold text-[#325271] transition hover:border-[#7f93d4] hover:text-[#12324c]"
                 >
-                  <Lottie
-                    animationData={heroAnimation}
-                    loop
-                    autoplay
-                    className="w-full drop-shadow-[0_0_22px_rgba(99,102,241,0.18)]"
-                  />
-                </Suspense>
-              ) : (
-                <div className="flex h-[380px] items-center justify-center text-sm text-[#6b85a0]">
-                  در حال بارگذاری انیمیشن...
-                </div>
-              )}
+                  مشاهده نمونه کارها
+                </a>
+              </div>
+            </article>
+
+            <div className="hero-center-shell">
+              <div className="hero-center-wrap hero-svg-wrap rounded-[2rem] p-4 md:p-6">
+                {heroAnimation ? (
+                  <Suspense
+                    fallback={
+                      <div className="flex h-[420px] items-center justify-center text-sm text-[#6b85a0]">
+                        در حال آماده سازی انیمیشن...
+                      </div>
+                    }
+                  >
+                    <Lottie
+                      animationData={heroAnimation}
+                      loop
+                      autoplay
+                      className="mx-auto h-[420px] w-full max-w-[420px] drop-shadow-[0_0_22px_rgba(99,102,241,0.18)]"
+                    />
+                  </Suspense>
+                ) : (
+                  <div className="flex h-[420px] items-center justify-center text-sm text-[#6b85a0]">
+                    در حال بارگذاری انیمیشن...
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>
       </header>
+
+      <div className="section-shell">
+        <div className="h-px bg-gradient-to-r from-transparent via-[#c7d2fe]/85 to-transparent" />
+      </div>
 
       <section id="about" className="section-shell py-12 md:py-16">
         <div className="mb-10 max-w-3xl animate-fade-up">
