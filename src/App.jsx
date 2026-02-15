@@ -178,7 +178,7 @@ function App() {
                 {heroAnimation ? (
                   <Suspense
                     fallback={
-                      <div className="flex h-[420px] items-center justify-center text-sm text-[#6b85a0]">
+                      <div className="flex h-[460px] items-center justify-center text-sm text-[#6b85a0]">
                         در حال آماده سازی انیمیشن...
                       </div>
                     }
@@ -187,11 +187,11 @@ function App() {
                       animationData={heroAnimation}
                       loop
                       autoplay
-                      className="mx-auto h-[420px] w-full max-w-[420px] drop-shadow-[0_0_22px_rgba(99,102,241,0.18)]"
+                      className="mx-auto h-[460px] w-full max-w-[460px] drop-shadow-[0_0_22px_rgba(99,102,241,0.18)]"
                     />
                   </Suspense>
                 ) : (
-                  <div className="flex h-[420px] items-center justify-center text-sm text-[#6b85a0]">
+                  <div className="flex h-[460px] items-center justify-center text-sm text-[#6b85a0]">
                     در حال بارگذاری انیمیشن...
                   </div>
                 )}
